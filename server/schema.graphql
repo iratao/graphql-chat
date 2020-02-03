@@ -1,0 +1,27 @@
+
+type User {
+  id: ID!
+  name: String!
+  chats: [Chat!]
+}
+
+type Chat {
+  id: ID!
+  from: User!
+  content: String!
+}
+
+type Mutation {
+  createChat(content: String!, userId: ID!): Chat
+  createUser(name: String!): User
+}
+
+type Query {
+  users: [User!]!
+  chats: [Chat!]!
+  chatsByUser(userId: ID!): [Chat!]!
+}
+
+type Subscription {
+  newChat: Chat
+}

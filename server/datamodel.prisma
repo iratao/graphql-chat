@@ -1,0 +1,12 @@
+type User {
+  id: ID! @id
+  name: String!
+  chats: [Chat!]
+}
+
+type Chat {
+  id: ID! @id
+  from: User! @relation(link: INLINE)
+  content: String!
+  createdAt: DateTime! @createdAt
+}
